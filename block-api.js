@@ -1,11 +1,13 @@
+//Declare Module
 const fs = require('fs');
 const http = require('http');
+const url = require('url');
 
 // Top Level Syncronous - Block Execution Why? solo se ejecutara una vez
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8'); // Read File data.json
 const dataObj = JSON.parse(data);   //Convert to Js Values
 
-
+//SERVER - Create the server 
 const server = http.createServer((req, res) => {
     const pathName = req.url; // Variable que obtendra el modulo req.url 
 
@@ -23,7 +25,7 @@ const server = http.createServer((req, res) => {
 
     } else {
         res.writeHead(404, {//Handle Error 404 - respond information
-            'Content-type': 'text/html',   //2 ** 
+            'Content-type': 'text/html',
             'my-own-header': 'hello-world'
         });
         res.end('<h1>Page not Found 404!</h1>');

@@ -3,9 +3,7 @@ const fs = require('fs');
 const http = require('http');
 const url = require('url');
 
-
-
-//SERVER - Create the server - First Part Create a Server
+//SERVER - Create the server 
 const server = http.createServer((req, res) => {
 
     const pathName = req.url; // Variable que obtendra el modulo req.url 
